@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Natra.Helpers;assembly=Natra"
+             x:Class="Natra.Pages.SepetPage">
+
+
+  <AbsoluteLayout>
+    <ActivityIndicator  x:Name="sepetPageActivityIndicator" IsVisible="false"  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+    <StackLayout x:Name="sepetPageForm" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+
+      <ListView x:Name="sepetListView"  HasUnevenRows="True" CachingStrategy="RecycleElement">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Orientation="Horizontal" >
+                <StackLayout HorizontalOptions="StartAndExpand" Margin="10,10,10,10">
+                  <Label Text="{Binding .stok.StokKodu, StringFormat='Ürün :{0}'}"/>
+                  <Label Text="{Binding SiparisNotlari, StringFormat='Notlar :{0}'}"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="EndAndExpand"  Margin="10,10,10,10">
+                  <Label HorizontalOptions="CenterAndExpand" Text="Miktar"/>
+                  <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="CenterAndExpand" Text="{Binding Miktar} "/>
+                    <Label HorizontalOptions="CenterAndExpand" Text="{Binding OlcuBirimi} "/>
+                  </StackLayout>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="EndAndExpand"  Margin="10,10,10,10">
+                  <Label HorizontalOptions="CenterAndExpand" Text="Gn. Toplam"/>
+                  <Label HorizontalOptions="CenterAndExpand" Text="{Binding GenelToplam} "/>
+                </StackLayout>
+
+              </StackLayout>
+
+              <ViewCell.ContextActions>
+                <MenuItem Clicked="OnSiparisDelete" CommandParameter="{Binding .}"
+                   Text="{x:Static local:Globals.deleteSiparis}" IsDestructive="True" />
+              </ViewCell.ContextActions>
+
+
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <Label x:Name="toplamLabel"></Label>
+      <StackLayout  Margin="15,0,10,0">
+        <Label   x:Name="sepetPageBrutToplamLabel" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20" ></Label>
+        <Label   x:Name="sepetPageKDVToplamLabel" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20" ></Label>
+        <Label   x:Name="sepetPageGenelToplamLabel" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20" ></Label>
+        <Button  Text = "{x:Static local:Globals.SepetiOnaylaButton}" x:Name="sepetPageOnayButton" VerticalOptions="Center" HorizontalOptions="Center"></Button>
+      </StackLayout>
+    </StackLayout>
+  </AbsoluteLayout>
+  
+</ContentPage>

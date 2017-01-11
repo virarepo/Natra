@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Natra"
+             x:Class="Natra.Pages.MainPage">
+
+ 
+
+  <StackLayout>
+    <SearchBar Placeholder="Ürün Ara d" x:Name="searchBar"/>
+    <ActivityIndicator  x:Name="activityIndicator" Color="Black" IsVisible="false"/>
+    <ListView  x:Name="productListView" HasUnevenRows="True">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+              <StackLayout Orientation="Horizontal" >
+                <StackLayout HorizontalOptions="StartAndExpand" Margin="10,10,10,10">
+                  <Label Text="{Binding Name, StringFormat='Ürün :{0}'}"/>
+                  <Label Text="{Binding Seller.Name, StringFormat='Satıcı :{0}'}"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="EndAndExpand"  Margin="10,10,10,10">
+                  <Label HorizontalOptions="CenterAndExpand" Text="Stok"/>
+                  <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="CenterAndExpand" Text="{Binding StockAmount} "/>
+                    <Label HorizontalOptions="CenterAndExpand" Text="{Binding AmountType} "/>
+                  </StackLayout>
+                  
+                </StackLayout>
+              </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+  </StackLayout>
+  
+</ContentPage>

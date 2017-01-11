@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Natra"
+             x:Class="Natra.Pages.MainPage">
+
+
+
+  <StackLayout>
+    <SearchBar Placeholder="Ürün Ara" x:Name="searchBar"/>
+    <ActivityIndicator  x:Name="activityIndicator" IsVisible="false"/>
+    <ListView  x:Name="productListView" HasUnevenRows="True" >
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" >
+              <StackLayout HorizontalOptions="StartAndExpand" Margin="10,10,10,10">
+                <Label Text="{Binding StokKodu, StringFormat='Ürün :{0}'}"/>
+                <Label Text="{Binding StokAciklamasi, StringFormat='Açklm :{0}'}"/>
+              </StackLayout>
+              
+              <StackLayout HorizontalOptions="EndAndExpand"  Margin="10,10,10,10">
+                <Label HorizontalOptions="CenterAndExpand" Text="Stok"/>
+                <StackLayout Orientation="Horizontal">
+                  <Label HorizontalOptions="CenterAndExpand" Text="{Binding bakiye} "/>
+                  <Label HorizontalOptions="CenterAndExpand" Text="{Binding OlcuBirimi1} "/>
+                </StackLayout>
+              </StackLayout>
+
+              <StackLayout HorizontalOptions="EndAndExpand"  Margin="10,10,10,10">
+                <Label HorizontalOptions="CenterAndExpand" Text="Fiyat"/>
+                <Label HorizontalOptions="CenterAndExpand" Text="{Binding SatisFiyati1} "/>
+              </StackLayout>
+              
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+
+</ContentPage>

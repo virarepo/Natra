@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Natra.Pages.AddSiparisPage">
+  <TableView Intent="Settings" HasUnevenRows="True">
+    <TableRoot>
+
+      <TableSection Title="Stok">
+        <ViewCell>
+          <Label  FontSize="20" Text="{Binding stok.bakiye,StringFormat='Stok miktarı : {0}'}" VerticalOptions="Center"  HorizontalOptions="Center"></Label>
+        </ViewCell>
+
+      </TableSection>
+
+      <TableSection Title="Ürün">
+        <ViewCell>
+          <StackLayout Orientation="Horizontal" Margin="15,0,10,0">
+            <Label  Text="Ölçü Birimi Seçiniz: " VerticalOptions="Center"></Label>
+            <Picker x:Name="OlcuBirimiPicker"   VerticalOptions="Center"  WidthRequest="100"></Picker>
+          </StackLayout>
+        </ViewCell>
+        <ViewCell>
+          <StackLayout Orientation="Horizontal" Margin="15,0,10,0">
+            <Label  Text="Miktarı Giriniz: " VerticalOptions="Center"></Label>
+            <Entry x:Name="miktarEntry" BindingContext="{x:Reference OlcuBirimiPicker}" WidthRequest="100" Keyboard="Numeric"></Entry>
+          </StackLayout>
+        </ViewCell>
+        <!--<EntryCell x:Name="miktarEntryCell" HorizontalTextAlignment="Center" Label="Miktarı Giriniz:"> </EntryCell>-->
+      </TableSection>
+
+      <TableSection Title="Açıklama">
+        <ViewCell >
+          <Editor x:Name="aciklamaEditor" Margin="15,0,10,0" HeightRequest="70"> </Editor>
+        </ViewCell>
+      </TableSection>
+
+      <TableSection Title="Onay">
+        <ViewCell >
+          <StackLayout  Margin="15,0,10,0">
+            <Label   x:Name="urunFiyatLabel" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20" ></Label>
+            <Label   x:Name="kdvLabel" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20" ></Label>
+            <Label   x:Name="toplamLabel" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20" ></Label>
+            <Button  x:Name="onayButton" Text="Sepete Ekle"></Button>
+          </StackLayout>
+        </ViewCell>
+
+      </TableSection>
+
+      <!--Placeholder="{Binding Items[SelectedIndex]}"-->
+
+      <!--Placeholder="Açıklamanız varsa giriniz"-->
+
+      <!--<TableSection Title="Miktar">
+          <EntryCell x:Name="miktarEntryCell" Label="Miktarı Giriniz:"> </EntryCell>
+        </TableSection>
+
+      <TableSection Title="Açıklama">
+        <ViewCell>
+          <StackLayout Orientation="Horizontal">
+            <Label HorizontalOptions="StartAndExpand"  Text="Miktarı Giriniz: " VerticalOptions="Center"></Label>
+           
+          </StackLayout>
+        </ViewCell>
+      </TableSection>-->
+
+    </TableRoot>
+  </TableView>
+</ContentPage>
