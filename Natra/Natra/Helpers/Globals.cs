@@ -14,6 +14,8 @@ namespace Natra.Helpers
         public static string MiktarIsWrongMsg = "Lütfen miktarı doğru giriniz";
         public static string UrunToplami = "Ürün toplamı";
         public static string BrutToplam = "Brüt Toplam";
+        public static string BrutTutar = "Brüt Tutar";
+        public static string Miktar = "Miktar";
         public static string KDVToplami = "KDV Toplam";
         public static string GenelToplam = "Genel Toplam";
         public static string SepetiOnaylaButton = "Sepeti Onayla";

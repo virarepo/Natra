@@ -10,7 +10,7 @@ namespace Natra.Helpers
 {
     public class DBHelper
     {
-        public static bool addSiparisToSepet(Siparis siparis)
+        public static bool addSiparisToSepet(Siparis_d siparis)
         {
             try
             {
@@ -24,18 +24,18 @@ namespace Natra.Helpers
             }
         }
 
-        public static List<Siparis> getAllSiparises()
+        public static List<Siparis_d> getAllSiparises()
         {
             var keys = findAllKeysWithStartWithTag("siparis");
 
-            List<Siparis> siparises = new List<Models.Siparis>();
+            List<Siparis_d> siparises = new List<Models.Siparis_d>();
 
             foreach (var key in keys)
             {
                 try
                 {
                     var val = App.Current.Properties[key] as string;
-                    if (val != null) siparises.Add(JsonConvert.DeserializeObject<Siparis>(val));
+                    if (val != null) siparises.Add(JsonConvert.DeserializeObject<Siparis_d>(val));
                 }
                 catch (Exception e)
                 {
@@ -54,7 +54,7 @@ namespace Natra.Helpers
             return removeEntries(findAllKeysWithStartWithTag("siparis"));
         }
 
-        public static bool deleteSiparis(Siparis siparis)
+        public static bool deleteSiparis(Siparis_d siparis)
         {
             return removeEntries(new List<string>() { "siparis+"+siparis.mobileDbId});
         }

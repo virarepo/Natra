@@ -14,7 +14,7 @@ namespace Natra.Pages
     {
         public Stok stok { get; set; }
 
-        Siparis newSiparis;
+        Siparis_d newSiparis;
 
         //public Double Toplam { get; set; }
 
@@ -23,7 +23,7 @@ namespace Natra.Pages
 
             this.stok = stok_;
 
-            newSiparis = new Siparis();
+            newSiparis = new Siparis_d();
 
             InitializeComponent();
 
@@ -55,8 +55,9 @@ namespace Natra.Pages
             onayButton.Clicked += (s, e) =>
             {
                 newSiparis.OlcuBirimi = OlcuBirimiPicker.Items[OlcuBirimiPicker.SelectedIndex];
-                newSiparis.SiparisNotlari = aciklamaEditor.Text;
+                //newSiparis.SiparisNotlari = aciklamaEditor.Text;
                 newSiparis.stok = stok;
+                newSiparis.HesapKodu = App.AppInstance.currentUser.username;
                 //newSiparis.GenelToplam = Toplam;
                 if (!DBHelper.addSiparisToSepet(newSiparis)) Logger.errLog("addSiparisToSepet addSiparisPage", null);
                 App.AppInstance.MainPage.Navigation.PopAsync();  // go back to previous screen
@@ -90,13 +91,13 @@ namespace Natra.Pages
 
                     urunFiyatLabel.Text = string.Format("{0} : {1} TL", Globals.UrunToplami, newSiparis.BrutTutar.ToString());
 
-                    newSiparis.KDVToplam = newSiparis.BrutTutar * stok.KDV / 100;
+                    var KDVToplam = newSiparis.BrutTutar * stok.KDV / 100;
 
-                    newSiparis.GenelToplam = newSiparis.BrutTutar + newSiparis.KDVToplam;   // kdv dahil
+                    var GenelToplam = newSiparis.BrutTutar + KDVToplam;   // kdv dahil
 
-                    toplamLabel.Text = string.Format("Toplam Tutar: {0} TL", newSiparis.GenelToplam);
+                    toplamLabel.Text = string.Format("Toplam Tutar: {0} TL", GenelToplam);
 
-                    kdvLabel.Text = string.Format("KDV Toplamı : {0} TL", newSiparis.KDVToplam); 
+                    kdvLabel.Text = string.Format("KDV Toplamı : {0} TL", KDVToplam); 
 
                     onayButton.IsEnabled = true;
                 }

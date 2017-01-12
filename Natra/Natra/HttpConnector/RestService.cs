@@ -14,7 +14,6 @@ namespace Natra.HttpConnector
     public class RestService
     {
 
-
         public async Task<List<Stok>> getAllStoks()
         {
             try
@@ -57,8 +56,7 @@ namespace Natra.HttpConnector
 
         }
 
-
-        public async Task<bool> sepetOnay(List<Siparis> siparises)
+        public async Task<bool> sepetOnay(Siparis_h siparis_h)
         {
             try
             {
@@ -72,7 +70,7 @@ namespace Natra.HttpConnector
 
                 client.DefaultRequestHeaders.Add("userData", Newtonsoft.Json.JsonConvert.SerializeObject(App.AppInstance.currentUser));
 
-                string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(siparises);
+                string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(siparis_h);
 
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
@@ -101,7 +99,6 @@ namespace Natra.HttpConnector
 
             return false;
         }
-
 
     }
 }

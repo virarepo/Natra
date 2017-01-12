@@ -20,7 +20,7 @@
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="EndAndExpand"  Margin="10,10,10,10">
-                  <Label HorizontalOptions="CenterAndExpand" Text="Miktar"/>
+                  <Label HorizontalOptions="CenterAndExpand" Text="{x:Static local:Globals.Miktar}"/>
                   <StackLayout Orientation="Horizontal">
                     <Label HorizontalOptions="CenterAndExpand" Text="{Binding Miktar} "/>
                     <Label HorizontalOptions="CenterAndExpand" Text="{Binding OlcuBirimi} "/>
@@ -28,8 +28,8 @@
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="EndAndExpand"  Margin="10,10,10,10">
-                  <Label HorizontalOptions="CenterAndExpand" Text="Gn. Toplam"/>
-                  <Label HorizontalOptions="CenterAndExpand" Text="{Binding GenelToplam} "/>
+                  <Label HorizontalOptions="CenterAndExpand" Text="{x:Static local:Globals.BrutTutar}"/>
+                  <Label HorizontalOptions="CenterAndExpand" Text="{Binding BrutTutar} "/>
                 </StackLayout>
 
               </StackLayout>
@@ -44,6 +44,9 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
+
+      <Label Text="Sipariş notları:" HorizontalOptions="Start" FontSize="20"></Label>
+      <Editor x:Name="aciklamaEditor" Margin="15,0,10,0" HeightRequest="70"> </Editor>
 
       <Label x:Name="toplamLabel"></Label>
       <StackLayout  Margin="15,0,10,0">

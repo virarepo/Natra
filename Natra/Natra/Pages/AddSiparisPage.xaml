@@ -28,11 +28,11 @@
         <!--<EntryCell x:Name="miktarEntryCell" HorizontalTextAlignment="Center" Label="Miktarı Giriniz:"> </EntryCell>-->
       </TableSection>
 
-      <TableSection Title="Açıklama">
+      <!--<TableSection Title="Açıklama">
         <ViewCell >
           <Editor x:Name="aciklamaEditor" Margin="15,0,10,0" HeightRequest="70"> </Editor>
         </ViewCell>
-      </TableSection>
+      </TableSection>-->
 
       <TableSection Title="Onay">
         <ViewCell >

@@ -173,8 +173,8 @@ namespace Natra.Pages
             mockupList.Add(cilek);
             mockupList.Add(armut);
 
-            var sip1 = new Siparis() { stok = elma, BrutTutar = 100, Miktar = 10, KDVToplam = 10, GenelToplam = 110, OlcuBirimi = "kg", SiparisNotlari = "not1" };
-            var sip2 = new Siparis() { stok = cilek, BrutTutar = 400, Miktar = 20, KDVToplam = 80, GenelToplam = 480, OlcuBirimi = "kg", SiparisNotlari = "not2" };
+            var sip1 = new Siparis_d() { stok = elma, BrutTutar = 100, Miktar = 10, OlcuBirimi = "kg" };
+            var sip2 = new Siparis_d() { stok = cilek, BrutTutar = 400, Miktar = 20, OlcuBirimi = "kg" };
 
             DBHelper.addSiparisToSepet(sip1);
             DBHelper.addSiparisToSepet(sip2);

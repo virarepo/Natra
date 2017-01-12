@@ -43,7 +43,8 @@
     <Compile Include="Helpers\Logger.cs" />
     <Compile Include="HttpConnector\RestService.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Siparis.cs" />
+    <Compile Include="Models\Siparis_d.cs" />
+    <Compile Include="Models\Siparis_h.cs" />
     <Compile Include="Models\Stok.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AddSiparisPage.xaml.cs">
