@@ -58,6 +58,7 @@ namespace Natra.Pages
                 //newSiparis.SiparisNotlari = aciklamaEditor.Text;
                 newSiparis.stok = stok;
                 newSiparis.HesapKodu = App.AppInstance.currentUser.username;
+               
                 //newSiparis.GenelToplam = Toplam;
                 if (!DBHelper.addSiparisToSepet(newSiparis)) Logger.errLog("addSiparisToSepet addSiparisPage", null);
                 App.AppInstance.MainPage.Navigation.PopAsync();  // go back to previous screen
@@ -87,7 +88,9 @@ namespace Natra.Pages
                 {
                     newSiparis.Miktar = miktar;
 
-                    newSiparis.BrutTutar = (miktar * carpan * stok.SatisFiyati1);  // urunler toplami
+                    newSiparis.BirimFiyat = carpan * stok.SatisFiyati1;
+
+                    newSiparis.BrutTutar = (miktar * newSiparis.BirimFiyat);  // urunler toplami
 
                     urunFiyatLabel.Text = string.Format("{0} : {1} TL", Globals.UrunToplami, newSiparis.BrutTutar.ToString());
 
@@ -110,5 +113,6 @@ namespace Natra.Pages
                 toplamLabel.Text = "";
             }
         }
+
     }
 }

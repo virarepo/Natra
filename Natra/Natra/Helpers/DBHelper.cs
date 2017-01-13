@@ -64,6 +64,67 @@ namespace Natra.Helpers
             return findAllKeysWithStartWithTag("siparis").Count;
         }
 
+        public static bool checkFirstOpenningApp()
+        {
+            if (!App.Current.Properties.ContainsKey("AppFirstOpening"))
+            {
+                try
+                {
+                    App.Current.Properties["AppFirstOpening"] = false;
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Logger.errLog("DBHelper - checkFirstOpenningApp", e);
+                    throw e;
+                }
+            }
+            return false;
+        }
+
+        public static bool checkLoggedIn()
+        {
+            try
+            {
+                if (!App.Current.Properties.ContainsKey("LoginStatus"))
+                {
+                    App.Current.Properties["LoginStatus"] = "false";
+                    return false;
+                }
+                return (App.Current.Properties["LoginStatus"].Equals("true"));
+            }
+            catch (Exception e)
+            {
+                Logger.errLog("DBHelper - checkLoggedIn", e);
+                throw e;
+            }
+        }
+
+        public static bool addUser(User u)
+        {
+            try
+            {
+                if (!App.Current.Properties.ContainsKey(u.username))
+                {
+                    App.Current.Properties["UserName"] = u.username;
+                    App.Current.Properties["pwd"] = u.pwd;
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.errLog("DBHelper - addUser", e);
+                throw e;
+            }
+            return false;
+        }
+
+        public static bool removeUser()
+        {
+            return removeEntries(new List<string>() { "UserName", "pwd" });
+        }
+
+
         static List<string> findAllKeysWithStartWithTag(string tag)
         {
             try

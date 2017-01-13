@@ -16,11 +16,21 @@ namespace Natra.Pages
         {
             base.OnAppearing();
             sepetim.Text = string.Format("Sepetim({0})", DBHelper.getSiparisCount());
+
+            if (!DBHelper.checkLoggedIn())
+            {
+                //openLoginPage();
+                return;
+            }
+
+            //if (DBHelper.checkFirstOpenningApp()) openTutorialPage();
         }
 
         ToolbarItem sepetim = null;
         public MDPage()
         {
+
+            
             //InitializeComponent();
             var mp = new MasterPage();
             mp.Title = "MasterPage Title";
@@ -28,6 +38,9 @@ namespace Natra.Pages
             //Master.Title = "master";
             Detail = new MainPage();
             Title = "Natra";
+
+            
+
 
             sepetim = new ToolbarItem("", null, () =>
              {
@@ -72,6 +85,16 @@ namespace Natra.Pages
             //    //var result = await page.DisplayAlert("howToGo", "Message", "Accept", "Cancel");
             //    //this.ShouldShowToolbarButton();
             //}));
+        }
+
+        private void openTutorialPage()
+        {
+            App.AppInstance.MainPage.Navigation.PushAsync(new TutorialPage());
+        }
+
+        private void openLoginPage()
+        {
+            App.AppInstance.MainPage.Navigation.PushAsync(new LoginPage());
         }
 
         private void openSepetPage()

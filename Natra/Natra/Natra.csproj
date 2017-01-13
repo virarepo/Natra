@@ -53,6 +53,9 @@
     <Compile Include="Pages\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,9 @@
     </Compile>
     <Compile Include="Pages\SepetPage.xaml.cs">
       <DependentUpon>SepetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TutorialPage.xaml.cs">
+      <DependentUpon>TutorialPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UICommunications\PopupManager.cs" />
     <EmbeddedResource Include="Properties\AssemblyInfo.cs" />
@@ -151,6 +157,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\SepetPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\TutorialPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
